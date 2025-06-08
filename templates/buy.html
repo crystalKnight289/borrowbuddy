@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow Items</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a202c;
+            color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #2d3748;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #f7fafc;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .product-card {
+            background-color: #2d3748;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            color: #fefcbf;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            color: #cbd5e0;
+        }
+
+        .no-items {
+            grid-column: 1 / -1;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fbbf24;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 0.5rem;
+            }
+
+            .nav-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .product-title {
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>BorrowHub</h1>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/sell">Rent Your Item</a>
+            <a href="/login">Login</a>
+        </div>
+    </nav>
+
+    <div class="product-grid">
+        {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.image_url }}" alt="{{ product.title }}"
+                     onerror="this.onerror=null;this.src='https://via.placeholder.com/250x200?text=No+Image';">
+                <div class="product-title">{{ product.title }}</div>
+                <div class="product-price">₹{{ product.price }}</div>
+            </div>
+        {% else %}
+    </div> <!-- Close product-grid -->
+    <div class="no-items">
+        Sorry, no items are available for borrowing right now.
+    </div>
+        {% endfor %}
+</body>
+</html>

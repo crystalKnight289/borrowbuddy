@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BorrowBuddy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background-color: #1a202c;
+      color: #fff;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid #2d3748;
+      background-color: rgba(26, 32, 44, 0.95);
+      backdrop-filter: blur(8px);
+      height: 4rem;
+    }
+    .header .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .header .logo span {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fbbf24;
+    }
+    .header .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .header .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: none;
+      transition: color 150ms;
+    }
+    .header .nav-links a:hover {
+      color: #fbbf24;
+    }
+
+    .hero-section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      text-align: center;
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fbbf24;
+    }
+    .hero-section p {
+      font-size: 1.25rem;
+      color: #d1d5db;
+      max-width: 42rem;
+      margin: 1rem auto;
+    }
+    .hero-section .buttons {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .hero-section .buttons {
+        flex-direction: row;
+      }
+    }
+    .button {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      border-radius: 9999px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fbbf24;
+      color: #1a202c;
+      transition: background-color 150ms;
+    }
+    .button:hover {
+      background-color: #d97706;
+    }
+
+    .howitworkssection {
+      padding: 4rem 1rem;
+      background-color: #2d3748;
+    }
+    .howitworkssection h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .howitworkssection .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .howitworkssection .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .step-card {
+      background-color: #1a202c;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .step-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #fbbf24;
+    }
+    .step-card p {
+      font-size: 1rem;
+      color: #d1d5db;
+    }
+
+    .signup-section {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer {
+      padding: 2rem;
+      text-align: center;
+      background-color: #1a202c;
+      font-size: 0.875rem;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo"><span>BorrowBuddy</span></div>
+      <nav class="nav-links">
+        <a href="{{ url_for('how_it_works') }}">How It Works</a>
+        <a href="{{ url_for('login') }}">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <h1>Welcome to <span class="highlight">BorrowBuddy</span></h1>
+      <p>
+        Rent out items you own, borrow what you need, and build a community-driven resource sharing platform that saves money and reduces clutter.
+      </p>
+      <div class="buttons">
+        <a href="{{ url_for('sell_page') }}" class="button">Rent Your Item</a>
+        <a href="{{ url_for('buy_page') }}" class="button">Borrow an Item</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="howitworkssection">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <h3>List Your Items</h3>
+          <p>Create an account and list items you want to lend out. Start sharing with your community!</p>
+        </div>
+        <div class="step-card">
+          <h3>Find What You Need</h3>
+          <p>Browse available items in your area. Borrow what you need while saving money and reducing waste.</p>
+        </div>
+        <div class="step-card">
+          <h3>Connect with Others</h3>
+          <p>Coordinate pickups and communicate with borrowers and lenders to build lasting relationships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="signup-section">
+    <a href="{{ url_for('signup') }}" class="button">Create Your Account</a>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BorrowBuddy. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rent Your Item - BorrowBuddy</title>
+  <style>
+    /* Global Base Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #1a202c; /* dark background */
+      color: white;
+      min-height: 100vh;
+    }
+    
+    /* Container for the Form */
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #1e293b;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+    
+    /* Header for the Form Page */
+    header {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fbbf24; /* Yellow accent */
+      padding: 1rem;
+    }
+    
+    /* Form Element Styles */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #fbbf24;
+    }
+    
+    input, 
+    textarea, 
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #4a5568;
+      background-color: #2d3748;
+      color: white;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    input:focus, 
+    textarea:focus, 
+    select:focus {
+      outline: none;
+      border-color: #38b2ac; /* Teal accent */
+      box-shadow: 0 0 5px rgba(56, 178, 172, 0.5);
+    }
+    
+    /* Button Styling */
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #fbbf24;
+      color: #1a202c;
+      font-size: 1.125rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    button:hover {
+      background-color: #d97706;
+    }
+  </style>
+</head>
+<body>
+  <header>List Your Item for Rent - BorrowBuddy</header>
+  <div class="container">
+    <form method="POST" action="/sell">
+      
+      <label for="title">Item Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter the title of your item" required>
+      
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option value="">Select a category</option>
+        <option value="electronics">Electronics</option>
+        <option value="furniture">Furniture</option>
+        <option value="vehicles">Vehicles</option>
+        <option value="books">Books</option>
+        <option value="tools">Tools</option>
+        <option value="other">Other</option>
+      </select>
+      
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Provide a detailed description" required></textarea>
+      
+      <label for="price">Price (₹ per day)</label>
+      <input type="number" id="price" name="price" min="1" placeholder="Enter price per day" required>
+      
+      <label for="image_url">Image URL</label>
+      <input type="url" id="image_url" name="image_url" placeholder="Enter image URL" required>
+      
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Enter your city or locality" required>
+      
+      <!-- Phone Number Field -->
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      
+      <button type="submit">Post Listing</button>
+    </form>
+  </div>
+</body>
+</html>
