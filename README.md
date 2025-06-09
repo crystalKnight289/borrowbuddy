@@ -1,2 +1,5 @@
-# borrowbuddy
-BorrowBuddy is a web platform where users can sign up, list items for rent, and borrow from others. Built with Flask and a database, it allows easy sharing of goods with secure login and item management, making peer-to-peer renting simple and convenient.
+BorrowBuddy is a website where people can rent items from each other. If someone has something they are not using—like a camera,tents,electronics or bicycle —they can post it on this site for others to borrow. And if someone needs an item for a short time, they can search and rent it instead of buying a new one.
+
+This platform is built using Flask, a tool that helps us make websites using Python. We also used SQLite to store user data and product details. Users can sign up by entering their username, email, and password. Once logged in, they can see available items listed for rent. They can also add their own items to the site by filling out a form with the title, description, image, and price.
+
+The site has separate pages like a homepage, login page, sign-up page, buy page, and sell page. We made the pages simple and user-friendly using HTML and CSS. When someone signs up, their information is saved in the database, and they are redirected to the login page. When they log in, they are taken to the main page.
